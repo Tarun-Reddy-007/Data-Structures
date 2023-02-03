@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+int value;
+struct node* llink;
+struct node* rlink;
+};
+typedef struct node* NODE;
+void preOrder(NODE root)
+{
+if(root==NULL)
+{
+return;
+}
+printf("%d ",root->value);
+preOrder(root->llink);
+preOrder(root->rlink);
+}
+
+void inOrder(NODE root)
+{
+if(root==NULL)
+{
+return;
+}
+inOrder(root->llink);
+printf("%d ",root->value);
+inOrder(root->rlink);
+
+}
+void postOrder(NODE root)
+{
+if(root==NULL)
+{
+return;
+}
+postOrder(root->llink);
+postOrder(root->rlink);
+printf("%d ",root->value);
+}
+void main()
+{
+NODE node1=malloc(sizeof(struct node));
+node1->value=1;
+node1->llink=NULL;
+node1->rlink=NULL;
+
+NODE node2=malloc(sizeof(struct node));
+node2->value=2;
+node2->llink=NULL;
+node2->rlink=NULL;
+
+NODE node3=malloc(sizeof(struct node));
+node3->value=3;
+node3->llink=NULL;
+node3->rlink=NULL;
+
+NODE node4=malloc(sizeof(struct node));
+node4->value=4;
+node4->llink=NULL;
+node4->rlink=NULL;
+
+NODE node5=malloc(sizeof(struct node));
+node5->value=5;
+node5->llink=NULL;
+node5->rlink=NULL;
+
+NODE node6=malloc(sizeof(struct node));
+node6->value=6;
+node6->llink=NULL;
+node6->rlink=NULL;
+
+NODE node7=malloc(sizeof(struct node));
+node7->value=7;
+node7->llink=NULL;
+node7->rlink=NULL;
+
+node1->llink=node2;
+node1->rlink=node3;
+
+node2->llink=node4;
+node2->rlink=node5;
+
+node3->llink=node6;
+node3->rlink=node7;
+
+NODE root=node1;
+preOrder(root);
+printf("\n");
+inOrder(root);
+printf("\n");
+postOrder(root);
+printf("\n");
+}
+
